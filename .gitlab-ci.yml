@@ -1,0 +1,10 @@
+image: busybox
+
+create-pages:
+  script:
+    - echo "Publishing ./docs to GitLab Pages"
+    - '[ -f docs/index.html ] || (echo "ERROR: docs/index.html not found" && exit 1)'
+  pages:
+    publish: docs
+  rules:
+    - if: '$CI_COMMIT_REF_NAME == $CI_DEFAULT_BRANCH'
